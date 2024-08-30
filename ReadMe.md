@@ -1,27 +1,22 @@
-# Repo with test task for browserstack
+# WebdriverIO
 
-## Task
-1.  Clone repo and install all dependencies.
-2.  Upload app Android-NativeDemoApp to browserstack using API ([Link](https://www.browserstack.com/docs/app-automate/api-reference/appium/apps#upload-an-app)) and add unique ID to the ```wdio.conf.js```.
-3.  Create test 5 test cases (locators can be found using [Appium Inspector](https://github.com/appium/appium-inspector/releases) that conected to the Browserstack account).
-4.  Create workflow with using secrets (for user and key in capabilities)([description of secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)).
-5.  Create 2 config files (with different devices)
+The TypeScript Browserstack Node.js WebdriverIO project.
 
-## Tips
-1.  You can create multiple accounts in browserstack (demo trial - 100 minutes).
-2.  First of all find all necessary locators.
-3.  In the Appium Inspector at the header choose ```Select Cloud Providers -> Browserstack``` and into ```JSON Representation``` insert the next:
+# Preconditions
+
+1. You will need to have browserstack account.
+2. You will need to add secrets(BROWSERSTACK_ACCESS_KEY, BROWSERSTACK_APP_ID, BROWSERSTACK_USERNAME) for CI and config files(for local tests, you can change variables to values) to work.
+3. Install Node.js;
+4. Clone the repository where the project is stored:
+    - `git clone https://github.com/borderForNoone/browserstack_test`
+    - `cd browserstack_test`
+5. Install Dependencies;
+    - `npm install`
+
+# Steps to run
+
+Run the command below
+
 ```
-{
-  "appium:protocol": "https",
-  "appium:hostname": "hub.browserstack.com",
-  "appium:path": "/wd/hub",
-  "appium:maxInstances": 1,
-  "appium:app": "Your App ID is here",
-  "appium:os_version": "9.0",
-  "appium:deviceName": "Google Pixel 3",
-  "platformName": "Android",
-  "appium:autoAcceptAlerts": "true",
-  "appium:browserstack.appium_version": "1.22.0"
-}
+npm run wdio
 ```
